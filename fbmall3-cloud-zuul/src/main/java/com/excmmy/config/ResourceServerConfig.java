@@ -21,6 +21,7 @@ public class ResourceServerConfig {
     public class UAAServerConfig extends ResourceServerConfigurerAdapter {
         @Autowired
         private TokenStore tokenStore;
+
         @Override
         public void configure(ResourceServerSecurityConfigurer resources){
             resources.tokenStore(tokenStore).resourceId(MallConstant.UAA_RESOURCE_ID)
