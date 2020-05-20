@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pojo.UserDTO;
 
@@ -30,7 +31,12 @@ public class TestController {
     }
 
     @GetMapping(value = "/hello") // 任意请求
-    public String hello(){
-        return "Hello";
+    public String hello1(){
+        return "Hello_Get";
+    }
+
+    @PostMapping(value = "/hello") // 任意请求
+    public String hello2(){
+        return "Hello_Post";
     }
 }

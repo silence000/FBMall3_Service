@@ -23,7 +23,7 @@ public class ResourceServerConfig {
         private TokenStore tokenStore;
         @Override
         public void configure(ResourceServerSecurityConfigurer resources){
-            resources.tokenStore(tokenStore).resourceId(MallConstant.ORDERS_RESOURCE_ID)
+            resources.tokenStore(tokenStore).resourceId(MallConstant.UAA_RESOURCE_ID)
                     .stateless(true);
         }
         @Override
@@ -55,5 +55,49 @@ public class ResourceServerConfig {
         }
     }
 
+    // Users资源配置
+    @Configuration
+    @EnableResourceServer
+    public class UsersServerConfig extends ResourceServerConfigurerAdapter {
+        @Autowired
+        private TokenStore tokenStore;
 
+        @Override
+        public void configure(ResourceServerSecurityConfigurer resources){
+            resources.tokenStore(tokenStore).resourceId(MallConstant.USERS_RESOURCE_ID)
+                    .stateless(true);
+        }
+
+        @Override
+        public void configure(HttpSecurity http) throws Exception {
+            http
+                    .authorizeRequests()
+                    .antMatchers("/users/p1/**").access("#oauth2.hasScope('P1')")
+                    .antMatchers("/users/p2/**").access("#oauth2.hasScope('P2')")
+                    .antMatchers("/users/p3/**").access("#oauth2.hasScope('P3')");
+        }
+    }
+
+    // Users资源配置
+    @Configuration
+    @EnableResourceServer
+    public class ProductsServerConfig extends ResourceServerConfigurerAdapter {
+        @Autowired
+        private TokenStore tokenStore;
+
+        @Override
+        public void configure(ResourceServerSecurityConfigurer resources){
+            resources.tokenStore(tokenStore).resourceId(MallConstant.PRODUCTS_RESOURCE_ID)
+                    .stateless(true);
+        }
+
+        @Override
+        public void configure(HttpSecurity http) throws Exception {
+            http
+                    .authorizeRequests()
+                    .antMatchers("/products/p1/**").access("#oauth2.hasScope('P1')")
+                    .antMatchers("/products/p2/**").access("#oauth2.hasScope('P2')")
+                    .antMatchers("/products/p3/**").access("#oauth2.hasScope('P3')");
+        }
+    }
 }

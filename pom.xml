@@ -14,7 +14,6 @@
     <module>fbmall3-cloud-zuul</module>
     <module>fbmall3-cloud-uaa</module>
     <module>fbmall3-common</module>
-    <module>fbmall3-images</module>
     <module>fbmall3-logs</module>
     <module>fbmall3-orders</module>
     <module>fbmall3-products</module>
