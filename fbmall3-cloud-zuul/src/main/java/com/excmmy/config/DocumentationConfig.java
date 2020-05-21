@@ -1,7 +1,5 @@
 package com.excmmy.config;
 
-import org.springframework.cloud.netflix.zuul.filters.Route;
-import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import springfox.documentation.swagger.web.SwaggerResource;
@@ -18,7 +16,7 @@ public class DocumentationConfig implements SwaggerResourcesProvider {
     public List<SwaggerResource> get() {
         List resources = new ArrayList<>();
         resources.add(swaggerResource("Users服务", "/users/v2/api-docs", "1.0"));
-        resources.add(swaggerResource("Products服务", "/users/v2/api-docs", "1.0"));
+        resources.add(swaggerResource("Products服务", "/products/v2/api-docs", "1.0"));
         resources.add(swaggerResource("Orders服务", "/orders/v2/api-docs", "1.0"));
         return resources;
     }
