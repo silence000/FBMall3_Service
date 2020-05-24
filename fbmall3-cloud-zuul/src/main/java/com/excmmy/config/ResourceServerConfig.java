@@ -101,4 +101,27 @@ public class ResourceServerConfig {
                     .antMatchers("/products/p3/**").access("#oauth2.hasScope('P3')");
         }
     }
+
+    // Reviews资源配置
+    @Configuration
+    @EnableResourceServer
+    public class ReviewssServerConfig extends ResourceServerConfigurerAdapter {
+        @Autowired
+        private TokenStore tokenStore;
+
+        @Override
+        public void configure(ResourceServerSecurityConfigurer resources){
+            resources.tokenStore(tokenStore).resourceId(MallConstant.REVIEWS_RESOURCE_ID)
+                    .stateless(true);
+        }
+
+        @Override
+        public void configure(HttpSecurity http) throws Exception {
+            http
+                    .authorizeRequests()
+                    .antMatchers("/products/p1/**").access("#oauth2.hasScope('P1')")
+                    .antMatchers("/products/p2/**").access("#oauth2.hasScope('P2')")
+                    .antMatchers("/products/p3/**").access("#oauth2.hasScope('P3')");
+        }
+    }
 }

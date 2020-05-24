@@ -37,7 +37,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     private ProductMapper productMapper;
 
     @Override
-    @Cacheable(value = "getCategory", key = "'current=' + #current+':'+'size='+#size")
+    @Cacheable(value = "getCategory", key = "'current=' + #current + ':' + 'size=' + #size")
     public ResponseJsonBody getCategory(Integer current, Integer size) {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         // 设置分页与查询条件
@@ -70,7 +70,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     }
 
     @Override
-    @Cacheable(value = "getMainMenu", key = "'categoryId='+#categoryId")
+    @Cacheable(value = "getMainMenu", key = "'categoryId=' + #categoryId")
     public ResponseJsonBody getMainMenu(Integer categoryId) {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         // 设置查询条件

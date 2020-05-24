@@ -2,30 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d244c9e-47ef-431a-9446-ad51f900b0b7" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/CategoryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/SimpleProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/HomeProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/ListProductInfoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/ProductimageDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/ProductsDetailsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/PropertyDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/MyBatisPlusGenerate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/RunReviewsServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/bean/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/config/MyMetaObjectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/config/MybatisPlusConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/config/ResourceServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/config/TokenConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/controller/ReviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/filter/TokenAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/mapper/ReviewMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/service/ReviewService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/service/impl/ReviewServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/spc11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/spc11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-cloud-zuul/src/main/java/com/excmmy/config/DocumentationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-cloud-zuul/src/main/java/com/excmmy/config/DocumentationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-cloud-zuul/src/main/java/com/excmmy/config/ResourceServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-cloud-zuul/src/main/java/com/excmmy/config/ResourceServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-cloud-zuul/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-cloud-zuul/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-cloud-zuul/target/classes/com/excmmy/config/DocumentationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-cloud-zuul/target/classes/com/excmmy/config/DocumentationConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-common/src/main/java/pojo/MallConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-common/src/main/java/pojo/MallConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-common/src/main/java/pojo/PageInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-common/src/main/java/pojo/PageInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-common/src/main/java/pojo/ResponseJsonBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-common/src/main/java/pojo/ResponseJsonBody.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-common/target/classes/pojo/PageInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-common/target/classes/pojo/PageInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-common/target/classes/pojo/ResponseJsonBody.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-common/target/classes/pojo/ResponseJsonBody.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/mapper/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/mapper/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/controller/ProductimageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/controller/ProductimageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/controller/PropertyvalueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/controller/PropertyvalueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/mapper/ProductimageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/mapper/ProductimageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/mapper/PropertyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/mapper/PropertyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/mapper/PropertyvalueMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/mapper/PropertyvalueMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/CategoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/CategoryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/ProductimageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/ProductimageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/PropertyvalueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/PropertyvalueService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/controller/CategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/mapper/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/mapper/CategoryMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/mapper/ProductMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/mapper/ProductMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/CategoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/ProductimageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/ProductimageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/PropertyvalueServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/PropertyvalueServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/controller/ProductimageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/controller/ProductimageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/controller/PropertyvalueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/controller/PropertyvalueController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/mapper/ProductimageMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/mapper/ProductimageMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/mapper/PropertyMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/mapper/PropertyMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/mapper/PropertyvalueMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/mapper/PropertyvalueMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/model/CategoryDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/model/CategoryDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/ProductimageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/ProductimageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/PropertyvalueService.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/PropertyvalueService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/CategoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-users/target/classes/com/excmmy/config/CustomizeAuthenticationEntryPoint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-users/target/classes/com/excmmy/config/CustomizeAuthenticationFailureHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-users/target/classes/com/excmmy/config/CustomizeAuthenticationSuccessHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-users/target/classes/com/excmmy/config/CustomizeLogoutSuccessHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/ProductServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/ProductimageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/ProductimageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/PropertyvalueServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/PropertyvalueServiceImpl.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +99,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fbmall3-cloud-zuul/src/main/java/com/excmmy/config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/config" />
     <property name="project.structure.last.edited" value="模块" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -80,18 +111,18 @@
       <recent name="C:\Users\spc11\OneDrive\Projects\FBMall3\fbmall3_service\fbmall3-images\src\main\resources\static" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.excmmy.config" />
       <recent name="com.excmmy.filter" />
       <recent name="com.excmmy" />
+      <recent name="com.excmmy.config" />
       <recent name="pojo" />
       <recent name="com.excmmy.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\spc11\OneDrive\Projects\FBMall3\fbmall3_service\fbmall3-reviews\src\main\java\com\excmmy\config" />
+      <recent name="C:\Users\spc11\OneDrive\Projects\FBMall3\fbmall3_service\fbmall3-reviews\src\main\resources" />
       <recent name="C:\Users\spc11\OneDrive\Projects\FBMall3\fbmall3_service\fbmall3-cloud-zuul\src\main\java\com\excmmy\config" />
       <recent name="C:\Users\spc11\OneDrive\Projects\FBMall3\fbmall3_service\fbmall3-cloud-uaa\src\main\java\com\excmmy\config" />
       <recent name="C:\Users\spc11\OneDrive\Projects\FBMall3\fbmall3_service\fbmall3-orders\src\main\java\com\excmmy\config" />
-      <recent name="C:\Users\spc11\OneDrive\Projects\FBMall3\fbmall3_service\fbmall3-users\src\main\java\com\excmmy\config" />
-      <recent name="C:\Users\spc11\OneDrive\Projects\FBMall3\fbmall3_service\fbmall3-products\src\main\java\com\excmmy\config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -111,7 +142,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RunProductsServer">
+  <component name="RunManager" selected="Spring Boot.RunReviewsServer">
+    <configuration name="MyBatisPlusGenerate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.excmmy.MyBatisPlusGenerate" />
+      <module name="fbmall3-reviews" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.excmmy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RunOrdersServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="fbmall3-orders" />
       <extension name="coverage">
@@ -138,28 +182,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RunUAAServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="fbmall3-cloud-uaa" />
+    <configuration name="RunReviewsServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="fbmall3-reviews" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.excmmy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.excmmy.RunUAAServer" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RunUsersServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="fbmall3-users" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.excmmy.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.excmmy.RunUsersServer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.excmmy.RunReviewsServer" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,10 +210,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.RunProductsServer" />
+        <item itemvalue="Spring Boot.RunReviewsServer" />
         <item itemvalue="Spring Boot.RunZuulCloud" />
-        <item itemvalue="Spring Boot.RunUsersServer" />
-        <item itemvalue="Spring Boot.RunUAAServer" />
+        <item itemvalue="Application.MyBatisPlusGenerate" />
+        <item itemvalue="Spring Boot.RunProductsServer" />
         <item itemvalue="Spring Boot.RunOrdersServer" />
       </list>
     </recent_temporary>
@@ -231,7 +262,7 @@
       <workItem from="1589333844413" duration="10170000" />
       <workItem from="1589730466889" duration="23400000" />
       <workItem from="1589937810844" duration="10312000" />
-      <workItem from="1589960777406" duration="31673000" />
+      <workItem from="1589960777406" duration="66980000" />
     </task>
     <servers />
   </component>

@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(value="CategoryDTO对象", description="")
+@ApiModel(value="CategoryDTO", description="")
 public class CategoryDTO implements Serializable {
     private Integer id;
 

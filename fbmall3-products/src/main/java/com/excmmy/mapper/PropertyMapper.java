@@ -2,6 +2,7 @@ package com.excmmy.mapper;
 
 import com.excmmy.bean.Property;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author Excmmy
  * @since 2020-05-20
  */
+@Repository
 public interface PropertyMapper extends BaseMapper<Property> {
 
 }
