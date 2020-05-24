@@ -41,11 +41,17 @@ public class UserController {
     }
 
     @ApiOperation("新建用户接口")
-    @PostMapping(value = "/insert/user") // 任意请求
+    @PostMapping(value = "/insert/user")
     public ResponseJsonBody insertUser(
             @RequestParam(name = "username")String username,
             @RequestParam(name = "userpass")String userpass) {
         return userService.insertUser(username, userpass);
+    }
+
+    @ApiOperation("根据用户ID查询用户名")
+    @GetMapping(value = "/get/username")
+    public ResponseJsonBody getUsernameById(@RequestParam(name = "id")Integer id) {
+        return userService.getUsernameById(id);
     }
 }
 

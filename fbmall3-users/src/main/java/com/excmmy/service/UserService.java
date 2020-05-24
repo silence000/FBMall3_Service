@@ -14,4 +14,6 @@ import pojo.ResponseJsonBody;
  */
 public interface UserService extends IService<User> {
     ResponseJsonBody insertUser(String username, String userpass);
+
+    ResponseJsonBody getUsernameById(Integer id);
 }

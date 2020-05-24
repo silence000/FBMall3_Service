@@ -94,7 +94,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
 
     @Override
-    @Cacheable(value = "getListProductInfo", key = "'productId=' + #id")
+    @Cacheable(value = "getProductDetails", key = "'productId=' + #id")
     public ResponseJsonBody getProductDetails(Integer id) {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         // 设置查询条件

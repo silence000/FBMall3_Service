@@ -61,4 +61,24 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         return responseJsonBody;
     }
+
+    @Override
+    public ResponseJsonBody getUsernameById(Integer id) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        // 设置查询条件
+        QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
+        userQueryWrapper.eq("id", id);
+        userQueryWrapper.eq("isDelete", "0");
+        User user = userMapper.selectOne(userQueryWrapper);
+        if (user == null) {
+            responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+            responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+            return responseJsonBody;
+        }
+        // 模型转换
+        responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+        responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+        responseJsonBody.setData(user.getName());
+        return responseJsonBody;
+    }
 }

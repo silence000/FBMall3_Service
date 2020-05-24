@@ -11,6 +11,7 @@ import com.excmmy.model.PropertyDTO;
 import com.excmmy.service.PropertyvalueService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import pojo.MallConstant;
 import pojo.ResponseJsonBody;
@@ -38,6 +39,7 @@ public class PropertyvalueServiceImpl extends ServiceImpl<PropertyvalueMapper, P
     private PropertyvalueMapper propertyvalueMapper;
 
     @Override
+    @Cacheable(value = "getProductExtra", key = "'productId=' + #id")
     public ResponseJsonBody getProductExtra(Integer id) {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         // 设置查询条件, 根据productId, 查询category
