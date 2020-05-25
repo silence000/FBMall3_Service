@@ -3,11 +3,10 @@ package com.excmmy.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.excmmy.bean.Review;
-import com.excmmy.feign.UserServiceFeign;
+import com.excmmy.feign.UserServerFeign;
 import com.excmmy.mapper.ReviewMapper;
 import com.excmmy.model.ReviewDTO;
 import com.excmmy.model.ReviewNumberDTO;
-import com.excmmy.model.UsernameDTO;
 import com.excmmy.service.ReviewService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class ReviewServiceImpl extends ServiceImpl<ReviewMapper, Review> impleme
     @Autowired
     private ReviewMapper reviewMapper;
     @Autowired
-    private UserServiceFeign userServiceFeign;
+    private UserServerFeign userServiceFeign;
 
     @Override
     public ResponseJsonBody getReviewsNumber(Integer id) {

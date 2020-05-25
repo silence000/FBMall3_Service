@@ -55,5 +55,18 @@ public class ProductController {
     public ResponseJsonBody getProductDetails(@RequestParam(name = "id") Integer id) {
         return productService.getProductDetails(id);
     }
+
+    @ApiOperation("获取分类页信息接口")
+    @GetMapping(value = "/get/product/condition")
+    public ResponseJsonBody getProductByConditions(
+            @RequestParam(name = "productName", defaultValue = "nul") String name,
+            @RequestParam(name = "cid", defaultValue = "0") Integer cid,
+            @RequestParam(name = "current") Integer current,
+            @RequestParam(name = "size") Integer size,
+            @RequestParam(name = "sortType", defaultValue = "none") String sortType,
+            @RequestParam(name = "lowPrice", defaultValue = "0") Integer low,
+            @RequestParam(name = "heiPrice", defaultValue = "99999999") Integer high) {
+        return productService.getProductByConditions(name, cid, current, size, sortType, low, high);
+    }
 }
 

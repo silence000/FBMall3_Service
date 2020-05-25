@@ -2,29 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d244c9e-47ef-431a-9446-ad51f900b0b7" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/feign/UserServiceFeign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/model/ReviewDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/model/ReviewNumberDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/model/UsernameDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/feign/ReviewsServerFeign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/CategoryProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/model/ReviewNumberDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/PropertyvalueServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/service/impl/PropertyvalueServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/ProductService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/ProductServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/PropertyvalueServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/target/classes/com/excmmy/service/impl/PropertyvalueServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/mapper/ReviewMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/mapper/ReviewMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/feign/UserServiceFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/feign/UserServerFeign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/service/impl/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/service/impl/ReviewServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/controller/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/controller/ReviewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/mapper/ReviewMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/mapper/ReviewMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/service/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/service/ReviewService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/feign/UserServiceFeign.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/service/impl/ReviewServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/service/impl/ReviewServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-users/src/main/java/com/excmmy/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-users/src/main/java/com/excmmy/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-users/src/main/java/com/excmmy/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-users/src/main/java/com/excmmy/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-users/src/main/java/com/excmmy/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-users/src/main/java/com/excmmy/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-users/target/classes/com/excmmy/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-users/target/classes/com/excmmy/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-users/target/classes/com/excmmy/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-users/target/classes/com/excmmy/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-users/target/classes/com/excmmy/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-users/target/classes/com/excmmy/service/impl/UserServiceImpl.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +27,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -178,9 +170,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.RunProductsServer" />
         <item itemvalue="Spring Boot.RunReviewsServer" />
         <item itemvalue="Spring Boot.RunUsersServer" />
-        <item itemvalue="Spring Boot.RunProductsServer" />
         <item itemvalue="Spring Boot.RunZuulCloud" />
         <item itemvalue="Spring Boot.RunUAAServer" />
       </list>
@@ -226,7 +218,7 @@
       <workItem from="1589730466889" duration="23400000" />
       <workItem from="1589937810844" duration="10312000" />
       <workItem from="1589960777406" duration="71856000" />
-      <workItem from="1590323215677" duration="5000000" />
+      <workItem from="1590323215677" duration="18906000" />
     </task>
     <servers />
   </component>

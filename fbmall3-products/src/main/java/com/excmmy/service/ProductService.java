@@ -14,5 +14,8 @@ import pojo.ResponseJsonBody;
  */
 public interface ProductService extends IService<Product> {
     ResponseJsonBody getListProductInfo(Integer current, Integer size, Integer cateCurrent, Integer cateSize);
+
     ResponseJsonBody getProductDetails(Integer id);
+
+    ResponseJsonBody getProductByConditions(String name, Integer id, Integer current, Integer size, String sortType, Integer low, Integer high);
 }

@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pojo.ResponseJsonBody;
 
-@FeignClient(name = "FBMALL3-USERS")
+@FeignClient(name = "FBMALL3-REVIEWS")
 @Primary
-public interface UserServiceFeign {
-    @GetMapping(value = "users/get/username")
-    public ResponseJsonBody getUsernameById(@RequestParam(name = "id")Integer id);
+public interface ReviewsServerFeign {
+    @GetMapping(value = "reviews/get/reviews_number")
+    public ResponseJsonBody getReviewsNumber(@RequestParam(value = "id") Integer id);
 }

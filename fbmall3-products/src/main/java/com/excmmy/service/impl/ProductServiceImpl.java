@@ -5,24 +5,21 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.excmmy.bean.Category;
 import com.excmmy.bean.Product;
 import com.excmmy.bean.Productimage;
+import com.excmmy.feign.ReviewsServerFeign;
 import com.excmmy.mapper.CategoryMapper;
 import com.excmmy.mapper.ProductMapper;
 import com.excmmy.mapper.ProductimageMapper;
-import com.excmmy.model.HomeProductDTO;
-import com.excmmy.model.ListProductInfoDTO;
-import com.excmmy.model.ProductsDetailsDTO;
+import com.excmmy.model.*;
 import com.excmmy.service.ProductService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import pojo.MallConstant;
 import pojo.ResponseJsonBody;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p>
@@ -40,6 +37,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     private ProductimageMapper productimageMapper;
     @Autowired
     private CategoryMapper categoryMapper;
+    @Autowired
+    private ReviewsServerFeign reviewsServerFeign;
 
     @Override
     @Cacheable(value = "getListProductInfo")
@@ -121,6 +120,76 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
         responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
         responseJsonBody.setData(productsDetailsDTO);
+        return responseJsonBody;
+    }
+
+    @Override
+    @Cacheable(value = "getProductByConditions")
+    public ResponseJsonBody getProductByConditions(String name, Integer cid, Integer current, Integer size, String sortType, Integer low, Integer high) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        // 设置分页与查询条件
+        Page<Product> productPage = new Page<>(current, size);
+        QueryWrapper<Product> productQueryWrapper = new QueryWrapper<>();
+        if (cid != 0) {
+            productQueryWrapper.eq("cid", cid);
+        }
+        if (!Objects.equals(name, "nul")) {
+            productQueryWrapper.like("name", name);
+        }
+        if (cid == 0 && Objects.equals(name, "nul")) {
+            responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+            responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+            return responseJsonBody;
+        }
+        productQueryWrapper.eq("isDelete", 0);
+        productQueryWrapper.between("promotePrice", low, high);
+        if (Objects.equals(sortType, "none")) {
+            // todo 默认排序综合排序, 此处应有算法支持综合排序
+        }
+        if (Objects.equals(sortType, "popularity")) {
+            // todo 应该根据评论去排序, 但评论在不同的表里, 此处先用销量代替
+            productQueryWrapper.orderByDesc("sales");
+        }
+        if (Objects.equals(sortType, "sales")) {
+            productQueryWrapper.orderByDesc("sales");
+        }
+        if (Objects.equals(sortType, "price")) {
+            productQueryWrapper.orderByAsc("promotePrice");
+        }
+        if (Objects.equals(sortType, "date")) {
+            productQueryWrapper.orderByDesc("createDate");
+        }
+        // 执行查询
+        productMapper.selectPage(productPage, productQueryWrapper);
+        // 获取查询结果
+        List<Product> productList = productPage.getRecords();
+        if (productList.size() == 0) {
+            responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+            responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+            return responseJsonBody;
+        }
+        // 模型转换
+        List<CategoryProductDTO> categoryProductDTOList = new ArrayList<>();
+        // 查询商品的图片
+        for (Product product : productList) {
+            // 设置分页与查询条件
+            Page<Productimage> productimagePage = new Page<>(1, 1);
+            QueryWrapper<Productimage> productimageQueryWrapper = new QueryWrapper<>();
+            productimageQueryWrapper.eq("pid", product.getId());
+            productimageQueryWrapper.eq("type", "single");
+            productimageQueryWrapper.eq("isDelete", "0");
+            // 执行查询
+            productimageMapper.selectPage(productimagePage, productimageQueryWrapper);
+            List<Productimage> productimageList = productimagePage.getRecords();
+            // 获取商品评论数量
+            ResponseJsonBody reviewsReviews = reviewsServerFeign.getReviewsNumber(product.getId());
+            ObjectMapper objectMapper = new ObjectMapper();
+            ReviewNumberDTO reviewNumberDTO = objectMapper.convertValue(reviewsReviews.getData(), ReviewNumberDTO.class);
+            categoryProductDTOList.add(new CategoryProductDTO(product.getId(), product.getName(), product.getPromotePrice(), productimageList.get(0).getId(), product.getSales(), reviewNumberDTO.getReviewNumber()));
+        }
+        responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+        responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+        responseJsonBody.setData(categoryProductDTOList);
         return responseJsonBody;
     }
 }
