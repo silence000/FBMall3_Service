@@ -27,8 +27,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/p1/**").access("#oauth2.hasScope('P1')")
-                .antMatchers("/p2/**").access("#oauth2.hasScope('P2')")
-                .antMatchers("/p3/**").access("#oauth2.hasScope('P3')")
+                .antMatchers("/p2/**").access("#oauth2.hasAnyScope('P2', 'P1')")
+                .antMatchers("/p3/**").access("#oauth2.hasAnyScope('P3', 'P2', 'P1')")
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

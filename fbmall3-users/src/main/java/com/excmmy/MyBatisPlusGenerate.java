@@ -57,7 +57,7 @@ public class MyBatisPlusGenerate {
         StrategyConfig strategy = new StrategyConfig();
 //        strategy.setInclude("edu" + "_\\w*"); // 映射表名, 所有edu_开头的表名都会被映射
 //        strategy.setInclude("users","cart","dictionary");
-        strategy.setInclude("user", "role", "permission", "rolepermission");
+        strategy.setInclude("cart");
         strategy.setNaming(NamingStrategy.underline_to_camel); // 数据映射到实体类的策略, 使用驼峰命名法
 //        strategy.setTablePrefix("edu_"); // 不生成表的前缀
         strategy.setEntityLombokModel(true); // 自动添加Lombok的注解
