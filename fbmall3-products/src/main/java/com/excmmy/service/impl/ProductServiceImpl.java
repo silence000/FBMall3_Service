@@ -53,7 +53,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         // 设置分页与查询条件
         Page<Category> categoryPage = new Page<>(cateCurrent, cateSize);
         QueryWrapper<Category> categoryQueryWrapper = new QueryWrapper<>();
-        categoryQueryWrapper.eq("isDelete", "0");
         // 执行查询
         categoryMapper.selectPage(categoryPage, categoryQueryWrapper);
         // 获取查询结果
@@ -64,7 +63,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             Page<Product> productPage = new Page<>(productCurrent, productSize);
             QueryWrapper<Product> productQueryWrapper = new QueryWrapper<>();
             productQueryWrapper.eq("cid", category.getId());
-            productQueryWrapper.eq("isDelete", "0");
             // 执行查询
             productMapper.selectPage(productPage, productQueryWrapper);
             List<Product> productList = productPage.getRecords();
@@ -77,7 +75,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
                 QueryWrapper<Productimage> productimageQueryWrapper = new QueryWrapper<>();
                 productimageQueryWrapper.eq("pid", product.getId());
                 productimageQueryWrapper.eq("type", "single");
-                productimageQueryWrapper.eq("isDelete", "0");
                 // 执行查询
                 productimageMapper.selectPage(productimagePage, productimageQueryWrapper);
                 List<Productimage> productimageList = productimagePage.getRecords();
@@ -99,7 +96,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         // 设置查询条件
         QueryWrapper<Product> productQueryWrapper = new QueryWrapper<>();
         productQueryWrapper.eq("id", id);
-        productQueryWrapper.eq("isDelete", "0");
         // 执行查询
         Product product = productMapper.selectOne(productQueryWrapper);
         if (product == null) {
@@ -141,7 +137,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
             return responseJsonBody;
         }
-        productQueryWrapper.eq("isDelete", 0);
         productQueryWrapper.between("promotePrice", low, high);
         if (Objects.equals(sortType, "none")) {
             // todo 默认排序综合排序, 此处应有算法支持综合排序
@@ -177,14 +172,13 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             QueryWrapper<Productimage> productimageQueryWrapper = new QueryWrapper<>();
             productimageQueryWrapper.eq("pid", product.getId());
             productimageQueryWrapper.eq("type", "single");
-            productimageQueryWrapper.eq("isDelete", "0");
             // 执行查询
             productimageMapper.selectPage(productimagePage, productimageQueryWrapper);
             List<Productimage> productimageList = productimagePage.getRecords();
             // 获取商品评论数量
-            ResponseJsonBody reviewsReviews = reviewsServerFeign.getReviewsNumber(product.getId());
+            ResponseJsonBody reviewsResponse = reviewsServerFeign.getReviewsNumber(product.getId());
             ObjectMapper objectMapper = new ObjectMapper();
-            ReviewNumberDTO reviewNumberDTO = objectMapper.convertValue(reviewsReviews.getData(), ReviewNumberDTO.class);
+            ReviewNumberDTO reviewNumberDTO = objectMapper.convertValue(reviewsResponse.getData(), ReviewNumberDTO.class);
             categoryProductDTOList.add(new CategoryProductDTO(product.getId(), product.getName(), product.getPromotePrice(), productimageList.get(0).getId(), product.getSales(), reviewNumberDTO.getReviewNumber()));
         }
         responseJsonBody.setCode(MallConstant.SUCCESS_CODE);

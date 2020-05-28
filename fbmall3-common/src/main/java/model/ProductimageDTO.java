@@ -1,4 +1,4 @@
-package com.excmmy.model;
+package model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -11,11 +11,11 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(value="CategoryDTO", description="")
-public class CategoryDTO implements Serializable {
-    @ApiModelProperty(value = "分类Id")
+@ApiModel(value="ProductimageDTO", description="")
+public class ProductimageDTO implements Serializable {
+    @ApiModelProperty(value = "图片ID")
     private Integer id;
 
-    @ApiModelProperty(value = "分类内容")
-    private String name;
+    @ApiModelProperty(value = "图片名称")
+    private Integer link;
 }

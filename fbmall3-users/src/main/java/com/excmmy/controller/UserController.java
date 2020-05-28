@@ -3,6 +3,7 @@ package com.excmmy.controller;
 
 import com.excmmy.service.UserService;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @ApiOperation("Users服务GET测试接口")
+    @ApiOperation("Users服务GET测试")
     @GetMapping(value = "/hello") // 任意请求
     public ResponseJsonBody hello1() {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
@@ -31,7 +32,7 @@ public class UserController {
         return responseJsonBody;
     }
 
-    @ApiOperation("Users服务POST测试接口")
+    @ApiOperation("Users服务POST测试")
     @PostMapping(value = "/hello") // 任意请求
     public ResponseJsonBody hello2() {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
@@ -40,17 +41,18 @@ public class UserController {
         return responseJsonBody;
     }
 
-    @ApiOperation("新建用户接口")
+    @ApiOperation("新建用户")
     @PostMapping(value = "/insert/user")
     public ResponseJsonBody insertUser(
-            @RequestParam(name = "username")String username,
-            @RequestParam(name = "userpass")String userpass) {
+            @ApiParam("用户名") @RequestParam(name = "username")String username,
+            @ApiParam("密码") @RequestParam(name = "userpass")String userpass) {
         return userService.insertUser(username, userpass);
     }
 
     @ApiOperation("根据用户ID查询用户名")
     @GetMapping(value = "/get/username")
-    public ResponseJsonBody getUsernameById(@RequestParam(name = "id")Integer id) {
+    public ResponseJsonBody getUsernameById(
+            @ApiParam("用户名") @RequestParam(name = "id")Integer id) {
         return userService.getUsernameById(id);
     }
 }

@@ -4,6 +4,7 @@ package com.excmmy.controller;
 import com.excmmy.service.ReviewService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +33,7 @@ public class ReviewController {
         return responseJsonBody;
     }
 
-    @ApiOperation("Reviews服务POST测试接口")
+    @ApiOperation("Reviews服务POST测试")
     @PostMapping(value = "/hello") // 任意请求
     public ResponseJsonBody hello2() {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
@@ -41,15 +42,17 @@ public class ReviewController {
         return responseJsonBody;
     }
 
-    @ApiOperation("获取商品评论总数量接口")
+    @ApiOperation("获取商品评论总数量")
     @GetMapping(value = "/get/reviews_number")
-    public ResponseJsonBody getReviewsNumber(@RequestParam(value = "id") Integer id) {
+    public ResponseJsonBody getReviewsNumber(
+            @ApiParam("商品ID") @RequestParam(value = "id") Integer id) {
         return reviewService.getReviewsNumber(id);
     }
 
-    @ApiOperation("获取商品评论接口")
+    @ApiOperation("获取商品评论")
     @GetMapping(value = "/get/reviews")
-    public ResponseJsonBody getReviews(@RequestParam(value = "id") Integer id) {
+    public ResponseJsonBody getReviews(
+            @ApiParam("商品ID") @RequestParam(value = "id") Integer id) {
         return reviewService.getReviews(id, 1L, 5L);
     }
 }

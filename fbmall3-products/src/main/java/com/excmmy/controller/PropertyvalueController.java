@@ -3,6 +3,7 @@ package com.excmmy.controller;
 
 import com.excmmy.service.PropertyvalueService;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +25,10 @@ public class PropertyvalueController {
     @Autowired
     private PropertyvalueService propertyvalueService;
 
-    @ApiOperation("获取商品详情页商品属性接口")
+    @ApiOperation("获取商品详情页商品属性")
     @GetMapping(value = "/get/product_extra")
-    public ResponseJsonBody getProductExtra(@RequestParam(name = "id")Integer id) {
+    public ResponseJsonBody getProductExtra(
+            @ApiParam("商品ID") @RequestParam(name = "id")Integer id) {
         return propertyvalueService.getProductExtra(id);
     }
 }

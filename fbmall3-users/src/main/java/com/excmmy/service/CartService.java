@@ -14,4 +14,10 @@ import pojo.ResponseJsonBody;
  */
 public interface CartService extends IService<Cart> {
     ResponseJsonBody insertProductInCart(Integer pid, Integer num);
+
+    ResponseJsonBody getProductInCart(Integer current, Integer size);
+
+    ResponseJsonBody updateProductInCart(Integer pid, Integer num);
+
+    ResponseJsonBody deleteProductInCart(Integer pid);
 }

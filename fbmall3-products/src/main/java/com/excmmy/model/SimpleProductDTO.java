@@ -11,6 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SimpleProductDTO implements Serializable {
+    @ApiModelProperty(value = "商品Id")
     private Integer id;
 
     @ApiModelProperty(value = "小标题")

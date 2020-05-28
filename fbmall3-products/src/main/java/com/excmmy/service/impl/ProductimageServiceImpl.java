@@ -43,7 +43,6 @@ public class ProductimageServiceImpl extends ServiceImpl<ProductimageMapper, Pro
         } else {
             productimageQueryWrapper.eq("type", "detail");
         }
-        productimageQueryWrapper.eq("isDelete", "0");
         // 执行查询
         productimageMapper.selectPage(productimagePage, productimageQueryWrapper);
         // 获取查询结果
@@ -62,6 +61,35 @@ public class ProductimageServiceImpl extends ServiceImpl<ProductimageMapper, Pro
         responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
         responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
         responseJsonBody.setData(productimageDTOList);
+        return responseJsonBody;
+    }
+
+    @Override
+    public ResponseJsonBody getOneProductImages(Integer id) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        // 设置分页与查询条件
+        Page<Productimage> productimagePage = new Page<>(1, 1);
+        QueryWrapper<Productimage> productimageQueryWrapper = new QueryWrapper<>();
+        productimageQueryWrapper.eq("pid", id);
+        productimageQueryWrapper.eq("type", "single");
+        // 执行查询
+        productimageMapper.selectPage(productimagePage, productimageQueryWrapper);
+        // 获取查询结果
+        List<Productimage> productimageList = productimagePage.getRecords();
+        if (productimageList.size() == 0) {
+            responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+            responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+            return responseJsonBody;
+        }
+        // 模型转换
+        List<ProductimageDTO> productimageDTOList = new ArrayList<>();
+        for (Productimage productimage : productimageList) {
+            productimageDTOList.add(new ProductimageDTO(productimage.getId(), productimage.getId()));
+        }
+        // 返回数据
+        responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+        responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+        responseJsonBody.setData(productimageDTOList.get(0));
         return responseJsonBody;
     }
 }

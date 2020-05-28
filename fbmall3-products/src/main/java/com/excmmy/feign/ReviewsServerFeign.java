@@ -10,5 +10,5 @@ import pojo.ResponseJsonBody;
 @Primary
 public interface ReviewsServerFeign {
     @GetMapping(value = "reviews/get/reviews_number")
-    public ResponseJsonBody getReviewsNumber(@RequestParam(value = "id") Integer id);
+    ResponseJsonBody getReviewsNumber(@RequestParam(value = "id") Integer id);
 }

@@ -14,4 +14,6 @@ import pojo.ResponseJsonBody;
  */
 public interface ProductimageService extends IService<Productimage> {
     ResponseJsonBody getProductImages(Integer id, String type);
+
+    ResponseJsonBody getOneProductImages(Integer id);
 }

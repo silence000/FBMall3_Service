@@ -32,7 +32,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
         userQueryWrapper.eq("name", username);
-        userQueryWrapper.eq("isDelete", "0");
         User originalUser = userMapper.selectOne(userQueryWrapper);
         if (originalUser != null) {
             responseJsonBody.setCode(MallConstant.FAIL_CODE_NAME_CONFLICT);
@@ -68,7 +67,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         // 设置查询条件
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
         userQueryWrapper.eq("id", id);
-        userQueryWrapper.eq("isDelete", "0");
         User user = userMapper.selectOne(userQueryWrapper);
         if (user == null) {
             responseJsonBody.setCode(MallConstant.SUCCESS_CODE);

@@ -43,7 +43,6 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         // 设置分页与查询条件
         Page<Category> categoryPage = new Page<>(current, size);
         QueryWrapper<Category> categoryQueryWrapper = new QueryWrapper<>();
-        categoryQueryWrapper.eq("isDelete", "0");
         // 执行查询
         categoryMapper.selectPage(categoryPage, categoryQueryWrapper);
         // 获取查询结果
@@ -75,7 +74,6 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         // 设置查询条件
         QueryWrapper<Category> categoryQueryWrapper = new QueryWrapper<>();
-        categoryQueryWrapper.eq("isDelete", "0");
         categoryQueryWrapper.eq("id", categoryId);
         // 执行查询
         Category category = categoryMapper.selectOne(categoryQueryWrapper);
@@ -88,7 +86,6 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         // 设置分页与查询条件
         Page<Product> productPage = new Page<>(1, 50);
         QueryWrapper<Product> productQueryWrapper = new QueryWrapper<>();
-        productQueryWrapper.eq("isDelete", "0");
         productQueryWrapper.eq("cid", categoryId);
         // 执行查询
         productMapper.selectPage(productPage, productQueryWrapper);

@@ -45,7 +45,6 @@ public class PropertyvalueServiceImpl extends ServiceImpl<PropertyvalueMapper, P
         // 设置查询条件, 根据productId, 查询category
         QueryWrapper<Product> productQueryWrapper = new QueryWrapper<>();
         productQueryWrapper.eq("id", id);
-        productQueryWrapper.eq("isDelete", 0);
         Product product = productMapper.selectOne(productQueryWrapper);
         if (product == null) {
             responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
@@ -55,7 +54,6 @@ public class PropertyvalueServiceImpl extends ServiceImpl<PropertyvalueMapper, P
         // 根据所属分类, 查询Property
         Map<String,Object> PropertyColumnMap = new HashMap<>();
         PropertyColumnMap.put("cid", product.getCid());
-        PropertyColumnMap.put("isDelete", 0);
         List<Property> propertyList = propertyMapper.selectByMap(PropertyColumnMap);
         // 创建传输对象
         List<PropertyDTO> propertyDTOList = new ArrayList<>();
@@ -64,7 +62,6 @@ public class PropertyvalueServiceImpl extends ServiceImpl<PropertyvalueMapper, P
             QueryWrapper<Propertyvalue> propertyvalueQueryWrapper = new QueryWrapper<>();
             propertyvalueQueryWrapper.eq("ptid", property.getId());
             propertyvalueQueryWrapper.eq("pid", id);
-            propertyvalueQueryWrapper.eq("isDelete", 0);
             Propertyvalue propertyvalue = propertyvalueMapper.selectOne(propertyvalueQueryWrapper);
             propertyDTOList.add(new PropertyDTO(property.getName(), propertyvalue.getValue()));
         }

@@ -40,7 +40,6 @@ public class ReviewServiceImpl extends ServiceImpl<ReviewMapper, Review> impleme
         Page<Review> reviewPage = new Page<>(1, 1);
         QueryWrapper<Review> reviewQueryWrapper = new QueryWrapper<>();
         reviewQueryWrapper.eq("pid", id);
-        reviewQueryWrapper.eq("isDelete", 0);
         // 执行查询
         reviewMapper.selectPage(reviewPage, reviewQueryWrapper);
         // 获取查询结果
@@ -58,7 +57,6 @@ public class ReviewServiceImpl extends ServiceImpl<ReviewMapper, Review> impleme
         Page<Review> reviewPage = new Page<>(size, current);
         QueryWrapper<Review> reviewQueryWrapper = new QueryWrapper<>();
         reviewQueryWrapper.eq("pid", id);
-        reviewQueryWrapper.eq("isDelete", 0);
         // 执行查询
         reviewMapper.selectPage(reviewPage, reviewQueryWrapper);
         // 获取查询结果
