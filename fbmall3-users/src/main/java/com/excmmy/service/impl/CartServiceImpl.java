@@ -143,9 +143,45 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         // 获取用户身份信息
         UserDTO userDTO = JSON.parseObject(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString(), UserDTO.class);
-        // 查询原信息
         QueryWrapper<Cart> cartQueryWrapper = new QueryWrapper<>();
         cartQueryWrapper.eq("uid", userDTO.getId());
+        cartQueryWrapper.eq("pid", pid);
+        int flag = cartMapper.delete(cartQueryWrapper);
+        if (flag != 1) {
+            responseJsonBody.setCode(MallConstant.FAIL_CODE);
+            responseJsonBody.setMsg(MallConstant.FAIL_DESC);
+            return responseJsonBody;
+        }
+        responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+        responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+        return responseJsonBody;
+    }
+
+    @Override
+    public ResponseJsonBody getProductNum(Integer uid, Integer pid) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        // 设置查询条件
+        QueryWrapper<Cart> cartQueryWrapper = new QueryWrapper<>();
+        cartQueryWrapper.eq("uid", uid);
+        cartQueryWrapper.eq("pid", pid);
+        // 执行查询
+        Cart cart = cartMapper.selectOne(cartQueryWrapper);
+        if (cart == null) {
+            responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+            responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+            return responseJsonBody;
+        }
+        responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+        responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+        responseJsonBody.setData(cart.getNumber());
+        return responseJsonBody;
+    }
+
+    @Override
+    public ResponseJsonBody deleteProductInCartFeign(Integer uid, Integer pid) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        QueryWrapper<Cart> cartQueryWrapper = new QueryWrapper<>();
+        cartQueryWrapper.eq("uid", uid);
         cartQueryWrapper.eq("pid", pid);
         int flag = cartMapper.delete(cartQueryWrapper);
         if (flag != 1) {

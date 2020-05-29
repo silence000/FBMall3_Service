@@ -20,4 +20,9 @@ public interface CartService extends IService<Cart> {
     ResponseJsonBody updateProductInCart(Integer pid, Integer num);
 
     ResponseJsonBody deleteProductInCart(Integer pid);
+
+    ResponseJsonBody getProductNum(Integer uid, Integer pid);
+
+    // 此处没有用户权限验证，不应使用Feign调用
+    ResponseJsonBody deleteProductInCartFeign(Integer uid, Integer pid);
 }

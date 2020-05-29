@@ -52,5 +52,21 @@ public class CartController {
             @ApiParam("商品ID") @RequestParam(name = "pid") Integer pid) {
         return cartService.deleteProductInCart(pid);
     }
+
+    @ApiOperation("根据用户ID与商品ID查询该商品的购买数量")
+    @GetMapping(value = "/get/cart/product/num")
+    public ResponseJsonBody getProductNum(
+            @ApiParam("用户ID") @RequestParam(name = "uid") Integer uid,
+            @ApiParam("商品ID") @RequestParam(name = "pid") Integer pid) {
+        return cartService.getProductNum(uid, pid);
+    }
+
+    @ApiOperation("删除购物车中的商品，Feign调用时使用")
+    @PostMapping(value = "/feign/delete/cart")
+    public ResponseJsonBody deleteProductInCartFeign(
+            @ApiParam("用户ID") @RequestParam(name = "uid") Integer uid,
+            @ApiParam("商品ID") @RequestParam(name = "pid") Integer pid) {
+        return cartService.deleteProductInCartFeign(uid, pid);
+    }
 }
 

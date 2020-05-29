@@ -26,7 +26,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/r/**").access("#oauth2.hasScope('P3')")
+                .antMatchers("/p1/**").access("#oauth2.hasScope('P1')")
+                .antMatchers("/p2/**").access("#oauth2.hasAnyScope('P2', 'P1')")
+                .antMatchers("/p3/**").access("#oauth2.hasAnyScope('P3', 'P2', 'P1')")
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

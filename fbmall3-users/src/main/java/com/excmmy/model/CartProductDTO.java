@@ -6,11 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel(value="CartProductDTO", description="")
-public class CartProductDTO {
+public class CartProductDTO implements Serializable {
     @ApiModelProperty(value = "商品Id")
     private Integer id;
 
