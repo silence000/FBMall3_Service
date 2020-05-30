@@ -17,4 +17,6 @@ public interface OrdersService extends IService<Orders> {
     ResponseJsonBody insertOrders(RecInfoDTO recInfo);
 
     ResponseJsonBody payOrders(Integer oid);
+
+    ResponseJsonBody getOrders(Integer current, Integer size, String type);
 }

@@ -9,6 +9,6 @@ import pojo.ResponseJsonBody;
 @FeignClient(name = "FBMALL3-REVIEWS")
 @Primary
 public interface ReviewsServerFeign {
-    @GetMapping(value = "reviews/get/reviews_number")
+    @GetMapping(value = "/reviews/get/reviews_number")
     ResponseJsonBody getReviewsNumber(@RequestParam(value = "id") Integer id);
 }

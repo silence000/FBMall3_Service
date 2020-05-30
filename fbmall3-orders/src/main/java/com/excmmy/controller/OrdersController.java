@@ -6,11 +6,8 @@ import com.excmmy.service.OrdersService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import pojo.ResponseJsonBody;
 
 /**
@@ -37,6 +34,15 @@ public class OrdersController {
     public ResponseJsonBody payOrders(
             @ApiParam("订单ID") @RequestParam(name = "oid") Integer oid) {
         return ordersService.payOrders(oid);
+    }
+
+    @ApiOperation("获取订单列表")
+    @GetMapping(value = "/p3/get/orders")
+    public ResponseJsonBody getOrders(
+            @ApiParam("当前页") @RequestParam(name = "current") Integer current,
+            @ApiParam("页面大小") @RequestParam(name = "size") Integer size,
+            @ApiParam("订单状态") @RequestParam(name = "status", defaultValue = "0") String type) {
+        return ordersService.getOrders(current, size, type);
     }
 }
 
