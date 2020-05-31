@@ -53,7 +53,7 @@ public class ReviewController {
     @GetMapping(value = "/get/reviews")
     public ResponseJsonBody getReviews(
             @ApiParam("商品ID") @RequestParam(value = "id") Integer id) {
-        return reviewService.getReviews(id, 1L, 5L);
+        return reviewService.getReviews(id, 1L, 10L);
     }
 }
 

@@ -2,25 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d244c9e-47ef-431a-9446-ad51f900b0b7" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/bean/Dictionary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/controller/DictionaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/feign/ProductsServerFeign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/mapper/DictionaryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/model/OrderItemDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/model/OrdersDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/service/DictionaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/service/impl/DictionaryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/spc11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/spc11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/model/OrderDetailsDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/MyBatisPlusGenerate.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/MyBatisPlusGenerate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/controller/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/model/OrderItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/model/OrderItemDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/service/OrdersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/service/OrdersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/service/impl/OrdersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-orders/src/main/java/com/excmmy/service/impl/OrdersServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-orders/target/classes/com/excmmy/MyBatisPlusGenerate.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-orders/target/classes/com/excmmy/MyBatisPlusGenerate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-orders/target/classes/com/excmmy/controller/OrdersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-orders/target/classes/com/excmmy/controller/OrdersController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-orders/target/classes/com/excmmy/service/OrdersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-orders/target/classes/com/excmmy/service/OrdersService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fbmall3-orders/target/classes/com/excmmy/service/impl/OrdersServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-orders/target/classes/com/excmmy/service/impl/OrdersServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/feign/ReviewsServerFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-products/src/main/java/com/excmmy/feign/ReviewsServerFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/service/impl/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/src/main/java/com/excmmy/service/impl/ReviewServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/controller/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/controller/ReviewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/service/impl/ReviewServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-reviews/target/classes/com/excmmy/service/impl/ReviewServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fbmall3-users/src/main/java/com/excmmy/service/impl/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fbmall3-users/src/main/java/com/excmmy/service/impl/CartServiceImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -189,10 +185,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.RunReviewsServer" />
         <item itemvalue="Spring Boot.RunOrdersServer" />
         <item itemvalue="Application.MyBatisPlusGenerate" />
         <item itemvalue="Spring Boot.RunUsersServer" />
-        <item itemvalue="Spring Boot.RunReviewsServer" />
         <item itemvalue="Spring Boot.RunProductsServer" />
       </list>
     </recent_temporary>
@@ -200,7 +196,7 @@
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
       <serviceView>
-        <option name="contentProportion" value="0.18716893" />
+        <option name="contentProportion" value="0.19457245" />
         <treeState>
           <expand>
             <path>
@@ -239,7 +235,7 @@
       <workItem from="1589960777406" duration="71856000" />
       <workItem from="1590323215677" duration="40631000" />
       <workItem from="1590628667180" duration="30271000" />
-      <workItem from="1590754653345" duration="20476000" />
+      <workItem from="1590754653345" duration="34493000" />
     </task>
     <servers />
   </component>

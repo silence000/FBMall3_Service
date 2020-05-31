@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(value="ProductsDetailsWithImgDTO", description="")
+@ApiModel(value="OrderItemDTO", description="")
 public class OrderItemDTO implements Serializable {
     @ApiModelProperty(value = "商品ID")
     private Integer id;

@@ -29,13 +29,6 @@ public class OrdersController {
         return ordersService.insertOrders(recInfoDTO);
     }
 
-    @ApiOperation("支付订单")
-    @PostMapping(value = "/p3/update/pay")
-    public ResponseJsonBody payOrders(
-            @ApiParam("订单ID") @RequestParam(name = "oid") Integer oid) {
-        return ordersService.payOrders(oid);
-    }
-
     @ApiOperation("获取订单列表")
     @GetMapping(value = "/p3/get/orders")
     public ResponseJsonBody getOrders(
@@ -43,6 +36,34 @@ public class OrdersController {
             @ApiParam("页面大小") @RequestParam(name = "size") Integer size,
             @ApiParam("订单状态") @RequestParam(name = "status", defaultValue = "0") String type) {
         return ordersService.getOrders(current, size, type);
+    }
+
+    @ApiOperation("获取一个订单的详情")
+    @GetMapping(value = "/p3/get/order/details")
+    public ResponseJsonBody getOneOrder(
+            @ApiParam("OrderID") @RequestParam(name = "oid") Integer oid) {
+        return ordersService.getOneOrder(oid);
+    }
+
+    @ApiOperation("支付订单")
+    @PostMapping(value = "/p3/update/pay")
+    public ResponseJsonBody payOrders(
+            @ApiParam("订单ID") @RequestParam(name = "oid") Integer oid) {
+        return ordersService.updateOrderState(oid, 2);
+    }
+
+    @ApiOperation("卖家发货")
+    @PostMapping(value = "/p3/update/distribute")
+    public ResponseJsonBody distributeOrders(
+            @ApiParam("订单ID") @RequestParam(name = "oid") Integer oid) {
+        return ordersService.updateOrderState(oid, 3);
+    }
+
+    @ApiOperation("确认收货")
+    @PostMapping(value = "/p3/update/confirm")
+    public ResponseJsonBody confirmOrders(
+            @ApiParam("订单ID") @RequestParam(name = "oid") Integer oid) {
+        return ordersService.updateOrderState(oid, 4);
     }
 }
 

@@ -2,6 +2,7 @@ package com.excmmy.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.excmmy.bean.Dictionary;
 import com.excmmy.bean.Orderitem;
@@ -11,6 +12,7 @@ import com.excmmy.feign.UsersServerFeign;
 import com.excmmy.mapper.DictionaryMapper;
 import com.excmmy.mapper.OrderitemMapper;
 import com.excmmy.mapper.OrdersMapper;
+import com.excmmy.model.OrderDetailsDTO;
 import com.excmmy.model.OrdersDTO;
 import com.excmmy.model.OrderItemDTO;
 import com.excmmy.model.RecInfoDTO;
@@ -113,29 +115,6 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     }
 
     @Override
-    public ResponseJsonBody payOrders(Integer oid) {
-        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
-        // 获取用户身份信息
-        UserDTO userDTO = JSON.parseObject(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString(), UserDTO.class);
-        QueryWrapper<Orders> ordersQueryWrapper = new QueryWrapper<>();
-        ordersQueryWrapper.eq("id", oid);
-        ordersQueryWrapper.eq("uid", userDTO.getId());
-        Orders ordersUpdate = new Orders();
-        ordersUpdate.setId(oid);
-        ordersUpdate.setStatus("2");
-        ordersUpdate.setPayDate(new Date());
-        int flag = ordersMapper.update(ordersUpdate, ordersQueryWrapper);
-        if (flag != 1) {
-            responseJsonBody.setCode(MallConstant.FAIL_CODE);
-            responseJsonBody.setMsg(MallConstant.FAIL_DESC);
-            return responseJsonBody;
-        }
-        responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
-        responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
-        return responseJsonBody;
-    }
-
-    @Override
     public ResponseJsonBody getOrders(Integer current, Integer size, String type) {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         // 获取用户身份信息
@@ -162,7 +141,6 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
             orderitemColumnMap.put("uid", userDTO.getId());
             orderitemColumnMap.put("oid", orders.getId());
             List<Orderitem> orderitemList = orderitemMapper.selectByMap(orderitemColumnMap);
-
             // 根据 Status 查询状态说明
             QueryWrapper<Dictionary> dictionaryQueryWrapper = new QueryWrapper<>();
             dictionaryQueryWrapper.eq("exType", 10);
@@ -197,6 +175,107 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
         responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
         responseJsonBody.setData(ordersListData);
+        return responseJsonBody;
+    }
+
+    @Override
+    public ResponseJsonBody getOneOrder(Integer oid) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        // 获取用户身份信息
+        UserDTO userDTO = JSON.parseObject(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString(), UserDTO.class);
+        // 创建最终数据返回模型
+        List<OrderItemDTO> orderItemDTOList = new ArrayList<>();
+        OrderDetailsDTO orderDetailsDTO = new OrderDetailsDTO();
+        // 设置查询条件查询 orderitem 表
+        HashMap<String, Object> orderItemCondition = new HashMap<>();
+        orderItemCondition.put("uid", userDTO.getId());
+        orderItemCondition.put("oid", oid);
+        // 获取该订单的 商品ID 与 商品数量
+        List<Orderitem> orderitemList = orderitemMapper.selectByMap(orderItemCondition);
+        if (orderitemList.size() == 0) {
+            responseJsonBody.setCode(MallConstant.FAIL_CODE);
+            responseJsonBody.setMsg(MallConstant.FAIL_DESC);
+            return responseJsonBody;
+        }
+        // 设置查询条件查询 order 表
+        QueryWrapper<Orders> ordersQueryWrapper = new QueryWrapper<>();
+        ordersQueryWrapper.eq("uid", userDTO.getId());
+        ordersQueryWrapper.eq("id", oid);
+        // 获取该订单的详情
+        Orders orders = ordersMapper.selectOne(ordersQueryWrapper);
+        if (orders == null) {
+            responseJsonBody.setCode(MallConstant.FAIL_CODE);
+            responseJsonBody.setMsg(MallConstant.FAIL_DESC);
+            return responseJsonBody;
+        }
+        // 填充 OrderDetailsDTO orderDetailsDTO 数据
+        orderDetailsDTO.setId(oid);
+        orderDetailsDTO.setCreateDate(orders.getCreateDate());
+        orderDetailsDTO.setPayDate(orders.getPayDate());
+        orderDetailsDTO.setOrderCode(orders.getOrderCode());
+        orderDetailsDTO.setAddress(orders.getAddress());
+        orderDetailsDTO.setReceiver(orders.getReceiver());
+        orderDetailsDTO.setMobile(orders.getMobile());
+        orderDetailsDTO.setPost(orders.getPost());
+        // 获取商品描述
+        for (Orderitem orderitem : orderitemList) {
+            ResponseJsonBody productResponse = productsServerFeign.getProductDetails(orderitem.getPid());
+            if (productResponse.getData() == null) {
+                responseJsonBody.setCode(MallConstant.FAIL_CODE);
+                responseJsonBody.setMsg(MallConstant.FAIL_DESC);
+                return responseJsonBody;
+            }
+            // 将Json数据转换为实体类
+            ProductsDetailsDTO productsDetailsDTO = JSON.parseObject(JSON.toJSONString(productResponse.getData()), ProductsDetailsDTO.class);
+            // 查询图片信息
+            ResponseJsonBody productImageResponse = productsServerFeign.getOneProductImages(orderitem.getPid());
+            if (productImageResponse.getData() == null) {
+                responseJsonBody.setCode(MallConstant.FAIL_CODE);
+                responseJsonBody.setMsg(MallConstant.FAIL_DESC);
+                return responseJsonBody;
+            }
+            // 将Json数据转换为实体类
+            ProductimageDTO productimageDTO = JSON.parseObject(JSON.toJSONString(productImageResponse.getData()), ProductimageDTO.class);
+            // 填充 List<OrderItemDTO> orderItemDTOList 数据
+            orderItemDTOList.add(new OrderItemDTO(orderitem.getPid(), productsDetailsDTO.getName(), productsDetailsDTO.getSubTitle(), productsDetailsDTO.getOriginalPrice(), productsDetailsDTO.getPromotePrice(), orderitem.getNumber(), productimageDTO.getLink() + ""));
+        }
+        responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+        responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
+        responseJsonBody.setData(orderItemDTOList);
+        responseJsonBody.setExtra(orderDetailsDTO);
+        return responseJsonBody;
+    }
+
+    @Override
+    public ResponseJsonBody updateOrderState(Integer oid, Integer status) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        // 获取用户身份信息
+        UserDTO userDTO = JSON.parseObject(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString(), UserDTO.class);
+        // 设置查询条件
+        QueryWrapper<Orders> ordersQueryWrapper = new QueryWrapper<>();
+        ordersQueryWrapper.eq("id", oid);
+        ordersQueryWrapper.eq("uid", userDTO.getId());
+        // 设置更新实体
+        Orders orders = new Orders();
+        orders.setId(oid);
+        orders.setStatus(status + "");
+        if (status == 2) { // 待付款 -> 待发货 (支付过程)
+            orders.setPayDate(new Date());
+        }
+        if (status == 3) { // 待发货 -> 待收货 (卖家发货过程)
+            orders.setDeliveryDate(new Date());
+        }
+        if (status == 4) { // 待收货 -> 待评价 (卖家确认收货过程)
+            orders.setConfirmDate(new Date());
+        }
+        int flag = ordersMapper.update(orders, ordersQueryWrapper);
+        if (flag == 0) {
+            responseJsonBody.setCode(MallConstant.FAIL_CODE);
+            responseJsonBody.setMsg(MallConstant.FAIL_DESC);
+            return responseJsonBody;
+        }
+        responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+        responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
         return responseJsonBody;
     }
 }

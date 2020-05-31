@@ -15,5 +15,5 @@ import pojo.ResponseJsonBody;
 public interface ReviewService extends IService<Review> {
     ResponseJsonBody getReviewsNumber(Integer id);
 
-    ResponseJsonBody getReviews(Integer id, Long size, Long current);
+    ResponseJsonBody getReviews(Integer id, Long current, Long size);
 }

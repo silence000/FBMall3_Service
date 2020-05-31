@@ -51,10 +51,10 @@ public class ReviewServiceImpl extends ServiceImpl<ReviewMapper, Review> impleme
     }
 
     @Override
-    public ResponseJsonBody getReviews(Integer id, Long size, Long current) {
+    public ResponseJsonBody getReviews(Integer id, Long current, Long size) {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         // 设置分页与查询条件
-        Page<Review> reviewPage = new Page<>(size, current);
+        Page<Review> reviewPage = new Page<>(current, size);
         QueryWrapper<Review> reviewQueryWrapper = new QueryWrapper<>();
         reviewQueryWrapper.eq("pid", id);
         // 执行查询
