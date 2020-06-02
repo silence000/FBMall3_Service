@@ -1,5 +1,6 @@
 package com.excmmy.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.excmmy.bean.Review;
@@ -9,13 +10,17 @@ import com.excmmy.model.ReviewDTO;
 import com.excmmy.model.ReviewNumberDTO;
 import com.excmmy.service.ReviewService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import model.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import pojo.MallConstant;
 import pojo.ResponseJsonBody;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -81,6 +86,27 @@ public class ReviewServiceImpl extends ServiceImpl<ReviewMapper, Review> impleme
         responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
         responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
         responseJsonBody.setData(reviewDTOList);
+        return responseJsonBody;
+    }
+
+    @Override
+    public ResponseJsonBody insertReview(Integer id, String review) {
+        ResponseJsonBody responseJsonBody = new ResponseJsonBody();
+        // 获取用户身份信息
+        UserDTO userDTO = JSON.parseObject(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString(), UserDTO.class);
+        Review reviewEntity = new Review();
+        reviewEntity.setContent(review);
+        reviewEntity.setPid(id);
+        reviewEntity.setUid(new Integer(userDTO.getId()));
+        reviewEntity.setCreateDate(new Date());
+        int flag = reviewMapper.insert(reviewEntity);
+        if (flag != 1) {
+            responseJsonBody.setCode(MallConstant.FAIL_CODE);
+            responseJsonBody.setMsg(MallConstant.FAIL_DESC);
+            return responseJsonBody;
+        }
+        responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
+        responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);
         return responseJsonBody;
     }
 }

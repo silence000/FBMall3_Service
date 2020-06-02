@@ -65,6 +65,7 @@ public class ProductimageServiceImpl extends ServiceImpl<ProductimageMapper, Pro
     }
 
     @Override
+    @Cacheable(value = "getOneProductImages", key = "'productId=' + #id")
     public ResponseJsonBody getOneProductImages(Integer id) {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         // 设置分页与查询条件

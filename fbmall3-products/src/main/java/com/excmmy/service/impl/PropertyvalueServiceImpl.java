@@ -63,7 +63,9 @@ public class PropertyvalueServiceImpl extends ServiceImpl<PropertyvalueMapper, P
             propertyvalueQueryWrapper.eq("ptid", property.getId());
             propertyvalueQueryWrapper.eq("pid", id);
             Propertyvalue propertyvalue = propertyvalueMapper.selectOne(propertyvalueQueryWrapper);
-            propertyDTOList.add(new PropertyDTO(property.getName(), propertyvalue.getValue()));
+            if (propertyvalue != null) {
+                propertyDTOList.add(new PropertyDTO(property.getName(), propertyvalue.getValue()));
+            }
         }
         responseJsonBody.setCode(MallConstant.SUCCESS_CODE);
         responseJsonBody.setMsg(MallConstant.SUCCESS_DESC);;

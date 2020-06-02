@@ -22,6 +22,7 @@ import model.ProductimageDTO;
 import model.ProductsDetailsDTO;
 import model.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -179,6 +180,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     }
 
     @Override
+    @Cacheable(value = "getOneOrder", key = "'oid=' + #oid")
     public ResponseJsonBody getOneOrder(Integer oid) {
         ResponseJsonBody responseJsonBody = new ResponseJsonBody();
         // 获取用户身份信息

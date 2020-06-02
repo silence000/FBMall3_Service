@@ -55,5 +55,13 @@ public class ReviewController {
             @ApiParam("商品ID") @RequestParam(value = "id") Integer id) {
         return reviewService.getReviews(id, 1L, 10L);
     }
+
+    @ApiOperation("插入商品评论")
+    @PostMapping(value = "/p3/insert/reviews")
+    public ResponseJsonBody insertReview(
+            @ApiParam("商品ID") @RequestParam(value = "id") Integer id,
+            @ApiParam("评论内容") @RequestParam(value = "review") String review) {
+        return reviewService.insertReview(id, review);
+    }
 }
 

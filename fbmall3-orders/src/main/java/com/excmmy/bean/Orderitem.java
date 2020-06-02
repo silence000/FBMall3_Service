@@ -44,6 +44,10 @@ public class Orderitem implements Serializable {
     @ApiModelProperty(value = "商品数量")
     private Integer number;
 
+    @TableField(value = "isComment")
+    @ApiModelProperty(value = "是否已评价")
+    private Integer isComment;
+
     @ApiModelProperty(value = "必备字段_创建时间")
     @TableField(value = "gmtCreate", fill = FieldFill.INSERT)
     private Date gmtCreate;

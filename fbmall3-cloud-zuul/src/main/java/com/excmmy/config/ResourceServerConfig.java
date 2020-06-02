@@ -52,9 +52,9 @@ public class ResourceServerConfig {
         public void configure(HttpSecurity http) throws Exception {
             http
                     .authorizeRequests()
-                    .antMatchers("/users/p1/**").access("#oauth2.hasScope('P1')")
-                    .antMatchers("/users/p2/**").access("#oauth2.hasScope('P2')")
-                    .antMatchers("/users/p3/**").access("#oauth2.hasScope('P3')");
+                    .antMatchers("/p1/**").access("#oauth2.hasScope('P1')")
+                    .antMatchers("/p2/**").access("#oauth2.hasAnyScope('P2', 'P1')")
+                    .antMatchers("/p3/**").access("#oauth2.hasAnyScope('P3', 'P2', 'P1')");
         }
     }
 
@@ -75,9 +75,9 @@ public class ResourceServerConfig {
         public void configure(HttpSecurity http) throws Exception {
             http
                     .authorizeRequests()
-                    .antMatchers("/users/p1/**").access("#oauth2.hasScope('P1')")
-                    .antMatchers("/users/p2/**").access("#oauth2.hasScope('P2')")
-                    .antMatchers("/users/p3/**").access("#oauth2.hasScope('P3')");
+                    .antMatchers("/p1/**").access("#oauth2.hasScope('P1')")
+                    .antMatchers("/p2/**").access("#oauth2.hasAnyScope('P2', 'P1')")
+                    .antMatchers("/p3/**").access("#oauth2.hasAnyScope('P3', 'P2', 'P1')");
         }
     }
 
@@ -98,9 +98,9 @@ public class ResourceServerConfig {
         public void configure(HttpSecurity http) throws Exception {
             http
                     .authorizeRequests()
-                    .antMatchers("/products/p1/**").access("#oauth2.hasScope('P1')")
-                    .antMatchers("/products/p2/**").access("#oauth2.hasScope('P2')")
-                    .antMatchers("/products/p3/**").access("#oauth2.hasScope('P3')");
+                    .antMatchers("/p1/**").access("#oauth2.hasScope('P1')")
+                    .antMatchers("/p2/**").access("#oauth2.hasAnyScope('P2', 'P1')")
+                    .antMatchers("/p3/**").access("#oauth2.hasAnyScope('P3', 'P2', 'P1')");
         }
     }
 
@@ -121,9 +121,9 @@ public class ResourceServerConfig {
         public void configure(HttpSecurity http) throws Exception {
             http
                     .authorizeRequests()
-                    .antMatchers("/products/p1/**").access("#oauth2.hasScope('P1')")
-                    .antMatchers("/products/p2/**").access("#oauth2.hasScope('P2')")
-                    .antMatchers("/products/p3/**").access("#oauth2.hasScope('P3')");
+                    .antMatchers("/p1/**").access("#oauth2.hasScope('P1')")
+                    .antMatchers("/p2/**").access("#oauth2.hasAnyScope('P2', 'P1')")
+                    .antMatchers("/p3/**").access("#oauth2.hasAnyScope('P3', 'P2', 'P1')");
         }
     }
 }

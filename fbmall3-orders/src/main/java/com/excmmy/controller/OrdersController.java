@@ -65,5 +65,12 @@ public class OrdersController {
             @ApiParam("订单ID") @RequestParam(name = "oid") Integer oid) {
         return ordersService.updateOrderState(oid, 4);
     }
+
+    @ApiOperation("完成订单")
+    @PostMapping(value = "/p3/update/finish")
+    public ResponseJsonBody finishOrders(
+            @ApiParam("订单ID") @RequestParam(name = "oid") Integer oid) {
+        return ordersService.updateOrderState(oid, 5);
+    }
 }
 

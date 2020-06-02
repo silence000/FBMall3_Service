@@ -16,4 +16,6 @@ public interface ReviewService extends IService<Review> {
     ResponseJsonBody getReviewsNumber(Integer id);
 
     ResponseJsonBody getReviews(Integer id, Long current, Long size);
+
+    ResponseJsonBody insertReview(Integer id, String review);
 }
